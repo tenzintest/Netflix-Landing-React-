@@ -8,6 +8,7 @@ import { generateMedia } from 'styled-media-query';
 import Tv from '../images/tv.png';
 import Tv2 from '../images/tv2.jpg';
 import Tv3 from '../images/device-pile.png';
+import '../css/styles.css';
 
 class Section extends Component {
   state = {
@@ -22,44 +23,17 @@ class Section extends Component {
   };
 
   render() {
+    
     return (
       <FooterContainer>
-       <div style={{ 
-                display: 'flex', 
-                justifyContent: 'space-around',
-                flexWrap: 'wrap',
-                padding: 10,
-                borderTop: '5px solid #333',
-                borderBottom: '5px solid #333',
-                position: 'relative',
-                top: -80,
-                paddingBottom: 80,
-                paddingTop: 30,
-                }}>
-            <div style={{
-                position: 'relative',
-                top: 150            
-            }}>
-                <h1 style={{
-                    fontSize: 60,
-                    color: 'white',
-                    fontWeight: '700',
-                    letterSpacing: 2
-                }}>Enjoy on your TV</h1>
-                <p 
-                style={{
-                    fontSize: 25,
-                    color: 'white',
-                    fontWeight: '300',
-                    position: 'relative',
-                    top: 15,
-                    letterSpacing: 2,
-                    lineHeight: 1.5
-                }}>Watch on Smart TVs, Playstation, Xbox, <br/> Chromecast, 
+       <div className='sectionBody'>
+            <div className='sectionText'>
+                <h1 className='sectionFonts'>Enjoy on your TV</h1>
+                <p className='sectionPara'>Watch on Smart TVs, Playstation, Xbox, <br/> Chromecast, 
                     Apple TV, Blu-ray players, and <br/> more.
                 </p>
             </div>
-            <div>
+            <div className='sectionImage'>
                 <img 
                     src={Tv}
                     alt="tv"
@@ -165,10 +139,10 @@ export default Section;
 
 // Media
 const customMedia = generateMedia({
-  tablet: '740px'
+  tablet: '740px',
+  smDesktop: '1440px',
+  tablet: '960px'
 });
-
-//Section
 
 // Main Footer Container
 const FooterContainer = styled.footer`
@@ -188,6 +162,71 @@ const FooterContainer = styled.footer`
     ${customMedia.lessThan('tablet')`
       grid-template-columns: repeat(2, 1fr);
     `}
+  }
+
+  .sectionBody {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-top: 5px solid #333;
+    border-bottom: 5px solid #333;
+    position: relative;
+    top: -80px;
+    padding-bottom: 80px;
+
+    ${customMedia.lessThan('tablet')`
+      padding-top:5px
+    `}
+
+    ${customMedia.lessThan('smDesktop')`
+      padding-top:5px
+    `}
+    
+  }
+
+  .sectionText{
+    position: relative;
+    top: 150px;
+
+    ${customMedia.lessThan('tablet')`
+      top: 60px;
+      text-align: center;
+  `}
+
+  ${customMedia.lessThan('smDesktop')`
+      top: 70px;
+      text-align: center;
+`}
+  }
+
+  .sectionFonts{
+    font-size: 60px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    ${customMedia.lessThan('tablet')`
+        font-size: 50px;
+    `}
+  }
+
+  .sectionPara {
+    font-size: 25px;
+    color: white;
+    font-weight: 300;
+    position: relative;
+    top: 15px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+
+    ${customMedia.lessThan('tablet')`
+      font-size: 18px;
+    `
+  }
+
+  .sectionImage{
+    margin-top: 50px;
   }
 
   ul li {
@@ -232,3 +271,4 @@ const FooterContainer = styled.footer`
     }
   }
 `;
+
