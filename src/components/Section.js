@@ -37,25 +37,21 @@ class Section extends Component {
                 <img 
                     src={Tv}
                     alt="tv"
-                    style={{
-
-                    }}
+                   
                     />
             </div>
        </div>
 
-       <div style={{ 
+       <div className="sectionsBody" style={{ 
                 display: 'flex', 
                 justifyContent: 'space-around',
                 flexWrap: 'wrap',
                 padding: 20,
                 borderBottom: '5px solid #333',
                 paddingBottom: 40
-                }}>
-            <div style={{
-                position: 'relative',
-                top: 130
-            }}>
+                }}
+                >
+            <div class="sectionsUptext">
                 <img 
                     src={Tv2}
                     alt="tv"
@@ -65,25 +61,25 @@ class Section extends Component {
                     }}
                     />
             </div>
-            <div>
-            <h1 style={{
-                    fontSize: 60,
-                    color: 'white',
-                    fontWeight: '700',
-                    letterSpacing: 2
-                }}>Download your shows <br/>to watch offline.</h1>
-                <p 
-                style={{
-                    fontSize: 25,
-                    color: 'white',
-                    fontWeight: '300',
-                    position: 'relative',
-                    top: 15,
-                    letterSpacing: 2,
-                    lineHeight: 1.5
-                }}>Stream unlimited movies and TV shows on <br/>your phone, tablet, laptop, and TV without
-                <br/> paying more.
-                </p>
+            <div className='sectionsText'>
+              <h1 className='sectionsTitle' style={{
+                      fontSize: 45,
+                      color: 'white',
+                      fontWeight: '700',
+                      letterSpacing: 2
+                  }}>Download your shows <br/>to watch offline.</h1>
+                  <p className='sectionsSubtitle'
+                  style={{
+                      fontSize: 18,
+                      color: 'white',
+                      fontWeight: '300',
+                      position: 'relative',
+                      top: 15,
+                      letterSpacing: 2,
+                      lineHeight: 1.5
+                  }}>Stream unlimited movies and TV shows on <br/>your phone, tablet, laptop, and TV without
+                  <br/> paying more.
+                  </p>
             </div>
        </div>
        <div style={{ 
@@ -96,19 +92,16 @@ class Section extends Component {
                 borderBottom: '5px solid #333',
                 paddingBottom: 40
                 }}>
-            <div style={{
-                position: 'relative',
-                top: 130
-            }}>
+            <div className='sectionText'>
                 <h1 style={{
-                    fontSize: 60,
+                    fontSize: 45,
                     color: 'white',
                     fontWeight: '700',
                     letterSpacing: 2
                 }}>Watch everywhere.</h1>
                 <p 
                 style={{
-                    fontSize: 25,
+                    fontSize: 20,
                     color: 'white',
                     fontWeight: '300',
                     position: 'relative',
@@ -119,7 +112,7 @@ class Section extends Component {
                  paying more.
                 </p>
             </div>
-            <div>
+            <div className='sectionImage2'>
                 
                 <img 
                     src={Tv3}
@@ -139,7 +132,7 @@ export default Section;
 
 // Media
 const customMedia = generateMedia({
-  tablet: '740px',
+  tablets: '740px',
   smDesktop: '1440px',
   tablet: '960px'
 });
@@ -194,11 +187,13 @@ const FooterContainer = styled.footer`
       text-align: center;
   `}
 
-  ${customMedia.lessThan('smDesktop')`
-      top: 70px;
-      text-align: center;
-`}
+    ${customMedia.lessThan('smDesktop')`
+        top: 70px;
+        margin-top: 80px;
+        text-align: center;
+  `}
   }
+
 
   .sectionFonts{
     font-size: 60px;
@@ -224,10 +219,58 @@ const FooterContainer = styled.footer`
       font-size: 18px;
     `
   }
+}
 
   .sectionImage{
     margin-top: 50px;
   }
+
+  .sectionImage2 {
+    margin-top: 120px;
+  }
+
+
+
+.sectionsBody{
+  display: flex, 
+  justity-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px,
+  border-bottom: 5px solid #333,
+  padding-bottom: 40px
+}
+  .sectionsUptext {
+    position: relative;
+    top: 130px;
+    ${customMedia.lessThan('smDesktop')`
+        top: 100px;
+        
+  `
+}
+  }
+
+  .sectionsText{
+    ${customMedia.lessThan('smDesktop')`
+        text-align: center;
+  `
+  }
+
+  .sectionsTitle {
+    ${customMedia.lessThan('tablets')`
+        font-size: 40px;
+        color: green;
+    `
+  }
+  }
+  
+  .sectionsSubtitle {
+  ${customMedia.lessThan('tablets')`
+      font-size: 14px;
+  `
+  }
+  }
+}
+
 
   ul li {
     list-style: none;
