@@ -21,9 +21,11 @@ class Footer extends Component {
   render() {
     return (
       <FooterContainer>
-        <span style={{ marginLeft: '15%', fontSize: '1.125rem' }}>
-          Questions?<Link to="/">Call 1-800-NET-FLIX</Link>
-        </span>
+        <div className="spanText">
+          <span style={{ marginLeft: '15%', fontSize: '1.125rem' }}>
+            Questions?<Link to="/">Call 1-800-NET-FLIX</Link>
+          </span>
+        </div>
         <div className="footer-columns">
           <ul>
             <li>
@@ -127,6 +129,12 @@ const FooterContainer = styled.footer`
   padding-bottom: 3rem;
   color: #999;
 
+  .spanText {
+    ${customMedia.lessThan('tablet')`
+      margin-left: 30px;
+    `}
+  }
+
   .footer-columns {
     width: 70%;
     margin: 1rem auto 0;
@@ -136,7 +144,10 @@ const FooterContainer = styled.footer`
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
     ${customMedia.lessThan('tablet')`
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 2fr);
+      width: 60%;
+      margin: 60px auto 0;
+      font-size: 1rem;
     `}
   }
 
